@@ -1,0 +1,16 @@
+{
+  "name": "Ohm Sweet Ohm",
+  "short_name": "Ohm Sweet Ohm",
+  "description": "Live home energy dashboard — circuits, solar, grid, and weather, straight from the panel over MQTT.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f9f9f7",
+  "theme_color": "#f9f9f7",
+  "orientation": "any",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

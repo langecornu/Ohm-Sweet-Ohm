@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -40 200 240">
+  <defs>
+    <path id="horn" d="M128,47 C137,21 157,-2 182,-19 C177,0 160,21 142,45 C139,50 132,51 128,47 Z"/>
+    <path id="eye" d="M0,5 L26,0 L28,11 L4,15 Z"/>
+    <path id="ear" d="M118,40 C128,28 138,22 144,22 C138,30 132,40 128,50 C124,48 120,44 118,40 Z"/>
+  </defs>
+  <ellipse cx="100" cy="0" rx="42" ry="15" fill="none" stroke="#f2ede2" stroke-width="3" stroke-dasharray="176 16" stroke-dashoffset="40" stroke-linecap="round" transform="rotate(-11 100 0)"/>
+  <use href="#horn" fill="#f2ede2"/>
+  <use href="#horn" fill="#f2ede2" transform="scale(-1,1) translate(-200,0)"/>
+  <use href="#ear" fill="#f2ede2"/>
+  <use href="#ear" fill="#f2ede2" transform="scale(-1,1) translate(-200,0)"/>
+  <circle cx="185" cy="-22" r="2.4" fill="#e26a3a"/>
+  <circle cx="191" cy="-30" r="1.5" fill="#e26a3a"/>
+  <circle cx="195" cy="-37" r="0.9" fill="#e26a3a"/>
+  <circle cx="100" cy="100" r="72" fill="#2b2f2a" stroke="#f2ede2" stroke-width="3.5"/>
+  <circle cx="100" cy="100" r="63" fill="none" stroke="#f2ede2" stroke-width="1" opacity="0.4"/>
+  <use href="#eye" x="70" y="82" fill="#f2ede2"/>
+  <use href="#eye" x="130" y="82" fill="#f2ede2" transform="scale(-1,1) translate(-200,0)"/>
+  <g stroke="#f2ede2" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
+    <line x1="48" y1="108" x2="66" y2="105"/>
+    <line x1="48" y1="116" x2="67" y2="115"/>
+    <line x1="134" y1="105" x2="152" y2="108"/>
+    <line x1="133" y1="115" x2="152" y2="116"/>
+  </g>
+  <path d="M90,110 L110,110 L100,122 Z" fill="#f2ede2"/>
+  <path d="M70,124 C82,140 118,140 130,124" fill="none" stroke="#f2ede2" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M84,132 L88,124 L92,133 Z" fill="#f2ede2"/>
+  <path d="M108,133 L112,124 L116,132 Z" fill="#f2ede2"/>
+</svg>

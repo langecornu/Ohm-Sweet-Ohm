@@ -1,0 +1,43 @@
+[Unit]
+Description=SEM Meter dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sem-meter
+Group=sem-meter
+WorkingDirectory=/opt/sem-meter/server
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=5
+
+# Secrets: keep OUT of the repo on the server. This file is root:sem-meter,
+# mode 640, and holds SEMMETER_USER / SEMMETER_PASS / DEVICE_SN (see
+# deploy/env.example).
+EnvironmentFile=/etc/sem-meter/env
+Environment=PORT=8787
+# V8 sizes its heap without knowing about the cgroup ceiling below, so left
+# alone it happily grows to MemoryMax and the kernel then pages the process
+# out to swap (slow disk = seconds-long request stalls). A lower heap limit
+# makes it garbage-collect instead.
+Environment=NODE_OPTIONS=--max-old-space-size=256
+
+# Basic hardening — the service only needs its own data dir and stdout.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/sem-meter/server/data
+ProtectHome=true
+
+# Keep the process on a short leash on a small VM — raised from 350M once
+# the readings table's growth (a few days in: ~200k rows, ~100MB db file,
+# growing forever by design) started leaving SQLite's own page cache no
+# real room within the old ceiling. 450M still leaves comfortable headroom
+# on this VM's ~964MB total (no swap configured — hitting the cap is a
+# hard OOM-kill, not graceful degradation, so this stays conservative
+# rather than maxing out available RAM).
+MemoryMax=450M
+
+[Install]
+WantedBy=multi-user.target

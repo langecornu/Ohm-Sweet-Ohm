@@ -1,0 +1,15 @@
+node_modules/
+server/data/
+.env
+.env.*
+*.log
+web/dist/
+__pycache__/
+*.pyc
+.DS_Store
+alexa.env
+
+# Local-only deployment notes (account, project and VM identifiers)
+deploy/private-notes.md
+# Vendor tutorial (third-party copyright): kept locally, linked rather than redistributed
+Homeasistant.mht

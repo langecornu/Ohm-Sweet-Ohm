@@ -1,0 +1,10 @@
+{
+  "name": "ohm-sweet-ohm-alexa-skill",
+  "version": "1.0.0",
+  "description": "Lambda backend for the Ohm Sweet Ohm 'AC Boost' Alexa Smart Home Skill — see README.md.",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  }
+}

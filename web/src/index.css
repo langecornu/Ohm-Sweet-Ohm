@@ -1,0 +1,4 @@
+/* base reset only; component styling lives in styles.css */
+body {
+  margin: 0;
+}

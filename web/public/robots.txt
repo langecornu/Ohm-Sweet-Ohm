@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/
+Disallow: /ws
+Allow: /
+
+Sitemap: https://meter.langecornu.com/sitemap.xml

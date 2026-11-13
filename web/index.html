@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ohm Sweet Ohm — Live Home Energy Dashboard</title>
+    <meta
+      name="description"
+      content="Ohm Sweet Ohm is a live home energy dashboard reading directly from a SEM Meter — real-time solar production, grid usage, and consumption analytics for a real home. Built by François Gravel (Lange Cornu)."
+    />
+    <link rel="canonical" href="https://meter.langecornu.com/" />
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ohm Sweet Ohm" />
+    <meta property="og:title" content="Ohm Sweet Ohm — Live Home Energy Dashboard" />
+    <meta
+      property="og:description"
+      content="A live home energy dashboard reading directly from a SEM Meter — real-time solar production, grid usage, and consumption analytics."
+    />
+    <meta property="og:url" content="https://meter.langecornu.com/" />
+    <meta property="og:image" content="https://meter.langecornu.com/apple-touch-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ohm Sweet Ohm — Live Home Energy Dashboard" />
+    <meta
+      name="twitter:description"
+      content="A live home energy dashboard reading directly from a SEM Meter — real-time solar production, grid usage, and consumption analytics."
+    />
+
+    <!-- PWA: installable as a standalone app -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ohm Sweet Ohm" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DGVSC4C7Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      // Only send real hits from the production domain — local dev
+      // (localhost:5173 / :8787) still loads gtag.js so trackEvent() calls
+      // don't error, but skipping 'config' here means those calls never
+      // reach the property, so dev/testing traffic can't pollute real data.
+      if (location.hostname === "meter.langecornu.com") {
+        gtag("config", "G-3DGVSC4C7Y");
+      }
+    </script>
+
+    <script>
+      // Apply the saved theme before first paint, so there's no flash of
+      // the wrong theme while React boots.
+      (function () {
+        try {
+          var t = localStorage.getItem("sem-meter-theme");
+          if (t === "light" || t === "dark") {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
